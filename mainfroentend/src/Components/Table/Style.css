@@ -1,0 +1,9 @@
+.tableContent {
+    display: inline-Block;
+    text-align: right
+}
+
+.addButton {
+    margin-bottom: 5px;
+}
+
