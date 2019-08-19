@@ -1,8 +1,9 @@
 import React from "react";
 import moment from 'moment';
+import Loading from '../spin/index'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from "redux-form";
-import { Form, Input, Button, DatePicker  } from "antd";
+import { Form, Input, Button, DatePicker, Spin  } from "antd";
 
 const FormItem = Form.Item;
 const { TextArea } = Input;
@@ -35,38 +36,43 @@ const makeField = Component => ({ input, meta, children, hasFeedback, label, ...
 
 const AInput = makeField(Input);
 const ATextarea = makeField(TextArea);
+const ASpin= makeField(Spin)
 const ADatePicker = makeField(DatePicker);
 
 
 const EmpolyeeForm = props => {
-  const { handleSubmit, pristine, reset, submitting } = props;
+  const { handleSubmit, pristine, reset, submitting, isLoad } = props;
   return (
-    <Form onSubmit={handleSubmit(props.submitData)}>
-      <Field label="Name" name="name" component={AInput} placeholder="Name" hasFeedback />
-      <Field
-        label="Date of joining "
-        name="doj"
-        component={ADatePicker}
-        placeholder="date of joining"
-        hasFeedback
-        onFocus={e => e.preventDefault()}
-        onBlur={e => e.preventDefault()}
-      />
-
-      <Field label="Present Address" name="present_address" component={ATextarea} />
-      <Field label="Communication Address" name="communication_address" component={ATextarea} />
-      <FormItem >
-      
-        <Button type="primary" disabled={pristine || submitting} htmlType="submit" style={{ marginRight: "10px" }}>
-          Submit
-        </Button>
-
-        <Button disabled={pristine || submitting} onClick={reset}>
-          Clear Values
-        </Button>
-        <br />
-      </FormItem>
-    </Form>
+    <div>
+      	{
+		isLoad ?
+        	<Loading />
+		:
+      	<Form onSubmit={handleSubmit(props.submitData)}>
+        	<Field label="Name" name="name" component={AInput} placeholder="Name" hasFeedback />
+			<Field
+			label="Date of joining "
+			name="doj"
+			component={ADatePicker}
+			placeholder="date of joining"
+			hasFeedback
+			onFocus={e => e.preventDefault()}
+			onBlur={e => e.preventDefault()}
+			/>
+        	<Field label="Present Address" name="present_address" component={ATextarea} />
+        	<Field label="Communication Address" name="communication_address" component={ATextarea} />
+        	<FormItem >
+				<Button type="primary" disabled={pristine || submitting} htmlType="submit" style={{ marginRight: "10px" }}>
+					Submit
+				</Button>
+				<Button disabled={pristine || submitting} onClick={reset}>
+					Clear Values
+				</Button>
+				<br />
+			</FormItem>
+	  	</Form> 
+		}
+    </div>
   );
 };
 
@@ -97,6 +103,7 @@ const validate = values => {
 
 const mapStateToProps = (state, ownProps) => {
   	return {
+	  isLoad: state.employee.isLoading,
 		initialValues: {
 			name:  state.employee.editdata.name,
 			present_address: state.employee.editdata.current_address,

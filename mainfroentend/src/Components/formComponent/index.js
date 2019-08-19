@@ -27,10 +27,11 @@ class creatEmployee extends Component {
 	}
   
     render() {
-     	 const { newEmpolyee, match, editDataval }= this.props
+     	 const { newEmpolyee, match, editDataval, isload }= this.props
 		  return (
 			<div>
 				{match.path==='/create-employee' ?
+
 				    <EmpolyeeForm editDataval={editDataval} submitData={newEmpolyee } formName=  'create'/>
 				:
 				editDataval === undefined ?
@@ -46,6 +47,7 @@ class creatEmployee extends Component {
 
 const mapStateToProps = (state) => {
 	return {
+		isload: state.employee.isLoading,
 		editData: state.employee.employeeDetails,
 		editDataval: state.employee.editdata
 	};

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Table, Divider, Button } from 'antd';
 import { connect } from 'react-redux';
+import Loading from '../spin/index'
 import {  removeEmployee, getEmployee, editEmployee } from '../employee/actions';
 
 import './Style.css'
@@ -51,9 +52,14 @@ class Tables extends Component {
           
 		return (
 			<div>
-				<Button onClick={this.createNewEmpolyee} type='primary'>ADD</Button>
-				<Table rowKey={record => record.id} pagination={{ pageSize: 10 }} scroll={{ y: 240 }}
-				columns={columns} dataSource={data.length ? data :[]} />
+				{this.props.isload ?
+				<Loading /> :
+				<div>
+					<Button onClick={this.createNewEmpolyee} type='primary'>ADD</Button>
+					<Table rowKey={record => record.id} pagination={{ pageSize: 10 }} scroll={{ y: 240 }}
+					columns={columns} dataSource={data.length ? data :[]} />
+				</div>
+				}
 			</div>
 		);
 	}
@@ -63,6 +69,7 @@ const mapStateToProps = (state) => {
 	return {
 	  employees: state.employee.employeeDetails,
 	  editData: state.employee,
+	  isload: state.employee.isLoading
 	};
 };
 

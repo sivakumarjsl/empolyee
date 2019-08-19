@@ -33,7 +33,7 @@ export default class Sidebar extends Component {
 					onClick={this.handleClick}
 					mode="inline"
 					defaultSelectedKeys={["1"]}
-					defaultOpenKeys={['sub1']}
+					// defaultOpenKeys={['sub1']}
 					style={{ height: '100%', borderRight: 0 }}
 				>
 					<SubMenu
