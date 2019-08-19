@@ -71,38 +71,39 @@ const EmpolyeeForm = props => {
 };
 
 const validate = values => {
-  const errors = {};
-  if (!values.Name) {
-    errors.Name = "Required";
-  } else if(!/^[a-zA-Z]*$/g.test(values.Name)) {
-    errors.Name = "Please enter a alphabet";
-  }
-  if (!values.present_address) {
-    errors.present_address = "Required";
-  } else if(!/^[a-zA-Z0-9\s,'-]*$/g.test(values.present_address)) {
-    errors.present_address = "Please enter a alphabet";
+	const errors = {};
+	if (!values.Name) {
+		errors.Name = "Required";
+	} else if(!/^[a-zA-Z]*$/g.test(values.Name)) {
+		errors.Name = "Please enter a alphabet";
+	}
+	if (!values.present_address) {
+		errors.present_address = "Required";
+	} else if(!/^[a-zA-Z0-9\s,'-]*$/g.test(values.present_address)) {
+		errors.present_address = "Please enter a alphabet";
 
-  }
-  if (!values.communication_address) {
-    errors.communication_address = "Required";
-  } else if(!/^[a-zA-Z0-9\s,'-]*$/g.test(values.communication_address)) {
-    errors.communication_address = "Please enter a alphabet";
-  }
-  if (!values.doj) {
-    errors.doj = "Required";
-  } 
-  return errors;
+	}
+	if (!values.communication_address) {
+		errors.communication_address = "Required";
+	} else if(!/^[a-zA-Z0-9\s,'-]*$/g.test(values.communication_address)) {
+		errors.communication_address = "Please enter a alphabet";
+	}
+	if (!values.doj) {
+		errors.doj = "Required";
+	} 
+	return errors;
 };
 
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-  initialValues: {
-      name:  state.employee.editdata.name,
-      present_address: state.employee.editdata.current_address,
-      communication_address: state.employee.editdata.communication_address ,
-      doj:  state.employee.editdata.doj === undefined  ? null :  moment(state.employee.editdata.doj, 'YYYY-MM-DD')}
-  }
+  	return {
+		initialValues: {
+			name:  state.employee.editdata.name,
+			present_address: state.employee.editdata.current_address,
+			communication_address: state.employee.editdata.communication_address ,
+			doj:  state.employee.editdata.doj === undefined  ? null :  moment(state.employee.editdata.doj, 'YYYY-MM-DD')
+		}
+	}
 }
 
 export default connect(mapStateToProps)(reduxForm({ form: 'empolyee', validate, enableReinitialize: true})(EmpolyeeForm))
