@@ -29,14 +29,13 @@ const makeField = Component => ({ input, meta, children, hasFeedback, label, ...
       hasFeedback={hasFeedback && hasError}
       help={hasError && meta.error}
     >
-      <Component value={null} {...input} {...rest} children={children} />
+      <Component {...input} {...rest} children={children} />
     </FormItem>
   );
 };
 
 const AInput = makeField(Input);
 const ATextarea = makeField(TextArea);
-const ASpin= makeField(Spin)
 const ADatePicker = makeField(DatePicker);
 
 
@@ -103,7 +102,7 @@ const validate = values => {
 
 const mapStateToProps = (state, ownProps) => {
   	return {
-	  isLoad: state.employee.isLoading,
+	  	isLoad: state.employee.isLoading,
 		initialValues: {
 			name:  state.employee.editdata.name,
 			present_address: state.employee.editdata.current_address,

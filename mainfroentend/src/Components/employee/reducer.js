@@ -80,7 +80,7 @@ const empolyeeReducer = (state=initial_state, action) => {
         case 'MODIFY_EMPLOYEE_SUCCESS':
             return {
                 ...state,
-                editdata: [],
+                // editdata: [],
                 isLoading: false,
                 msg: action.payload.msg,
                 error: false
