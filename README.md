@@ -14,7 +14,7 @@ Major role:
     
     
 What is react?
-   Bascially you guys alreaddy know about react js
+   Bascially you guys already know about react js
    1. javascript libraray 
    2. Help to design complex Ui easily.
    3. we can reuseable component here.
@@ -33,6 +33,6 @@ My small concern here:
    Hopefully i will change that soon.
    
 Queries are welcome:
-    If you have doubts or any suggestion to so please drop a mail to me `sivakumarjegadesan@gmail.com`
+    If you have doubts or any suggestion to me. then please drop a mail to me `sivakumarjegadesan@gmail.com`
  
  Have a fun to learn new things.
