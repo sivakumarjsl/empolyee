@@ -17,7 +17,7 @@ What is react?
    Bascially you guys already know about react js
    1. javascript libraray 
    2. Help to design complex Ui easily.
-   3. we can reuseable component here.
+   3. we can use reuseable component here.
 
 Node js?
   In my knowledge node js nothing but intermediate connecction for client and DB side (like mysql or postgresql whatever u choose)
