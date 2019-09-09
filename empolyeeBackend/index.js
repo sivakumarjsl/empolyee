@@ -9,6 +9,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/employee', require('./employee/router'));
+app.use('/image', require('./image/router'));
 
 
 http.listen(4000, function () {

@@ -14,7 +14,13 @@ import { GET_EMPLOYEE_REQUEST,
         MODIFY_EMPLOYEE_FAILED,
         EDIT_EMPLOYEE_REQUEST,
         EDIT_EMPLOYEE_SUCCESS,
-        EDIT_EMPLOYEE_FAILED
+		EDIT_EMPLOYEE_FAILED,
+		IMAGE_UPLOAD_REQUEST,
+		IMAGE_UPLOAD_SUCCESS,
+		IMAGE_UPLOAD_FAILED,
+		REMOVE_UPLOAD_REQUEST,
+		REMOVE_UPLOAD_SUCCESS, 
+		REMOVE_UPLOAD_FAILED
 
 } from  './actionTypes';
 
@@ -192,3 +198,77 @@ const modifyEmployeeFailure = error => ({
 		error
 	}
 });
+
+
+export const uploadImage = ({data}) => {
+	console.log('data', data)
+	return dispatch => {
+		dispatch(uploadImageStarted());
+		axios
+		.post(`http://localhost:4000/Image/addImage`, {
+			data
+		})
+		.then(res => {
+			// dispatch(getEmployee({}));
+			dispatch(uploadImageSuccess(res.data));
+		})
+		.catch(err => {
+			dispatch(uploadImageFailure(err.message));
+		});
+	};
+};
+
+const uploadImageSuccess = data => ({
+	type: IMAGE_UPLOAD_SUCCESS,
+	payload: {
+		data
+	}
+});
+
+const uploadImageStarted = () => ({
+  	type: IMAGE_UPLOAD_REQUEST
+});
+
+const uploadImageFailure = error => ({
+	type: IMAGE_UPLOAD_FAILED,
+	payload: {
+		error
+	}
+});
+
+
+
+// export const uploadImage = ({values, id}) => {
+// 	return dispatch => {
+// 		dispatch(uploadImageStarted());
+// 		axios
+// 		.put(`http://localhost:4000/image/deleteImage/${id}`, {
+// 			values
+// 		})
+// 		.then(res => {
+// 			dispatch(getEmployee({}));
+// 			dispatch(uploadImageSuccess(res.data));
+// 		})
+// 		.catch(err => {
+// 			dispatch(uploadImageFailure(err.message));
+// 		});
+// 	};
+// };
+
+// const uploadImageSuccess = data => ({
+// 	type: REMOVE_UPLOAD_SUCCESS,
+// 	payload: {
+// 		data
+// 	}
+// });
+
+// const uploadImageStarted = () => ({
+//   	type: REMOVE_UPLOAD_REQUEST
+// });
+
+// const uploadImageFailure = error => ({
+// 	type: REMOVE_UPLOAD_FAILED,
+// 	payload: {
+// 		error
+// 	}
+// });
