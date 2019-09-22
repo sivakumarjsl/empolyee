@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-import amtex from './../assets/amtex-Logo.png';
+import siva from './../assets/favicon.ico';
 import MainContent from './MainContent'
 import ImageUpload from './imageUpload'
 
@@ -61,7 +61,7 @@ export default class Sidebar extends Component {
 							}
 						>
 							<Menu.Item onClick={this.about} key="1">About US</Menu.Item>
-							<Menu.Item onClick={this.employee} key="2">Current page</Menu.Item>
+							<Menu.Item onClick={this.employee} key="2">Current Page</Menu.Item>
 							<Menu.Item onClick={this.imageUpload} key="3">Image Upload</Menu.Item>
 
 						</SubMenu>
@@ -91,7 +91,7 @@ export default class Sidebar extends Component {
 					</Content>
 					<Footer style={{ textAlign: 'center' }}>
 						<div className="logo" >
-							<img size={100} width={100} src={amtex} alt='amtex'></img>
+							<img size={60} width={60} src={siva} alt='amtex'></img>
 						</div>
 					</Footer>
 
