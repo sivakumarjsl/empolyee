@@ -34,5 +34,7 @@ My small concern here:
    
 Queries are welcome:
     If you have doubts or any suggestion to me. then please drop a mail to me `sivakumarjegadesan@gmail.com`
+    
+    image upload future upload shortly
  
  Have a fun to learn new things.
