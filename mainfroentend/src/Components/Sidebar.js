@@ -91,7 +91,7 @@ export default class Sidebar extends Component {
 					</Content>
 					<Footer style={{ textAlign: 'center' }}>
 						<div className="logo" >
-							<img size={60} width={60} src={siva} alt='amtex'></img>
+							<img size={60} width={60} src={siva} alt='React'></img>
 						</div>
 					</Footer>
 

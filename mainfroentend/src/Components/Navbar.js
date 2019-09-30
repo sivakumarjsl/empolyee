@@ -11,7 +11,7 @@ export default class Navbar extends Component {
 			<Layout>
 				<Header className="header">
 				<div className="logo" >
-					<img size={40} width={40} src={siva} alt='amtex'></img>
+					<img size={40} width={40} src={siva} alt='React'></img>
 				</div>
 				</Header>
 			</Layout>
